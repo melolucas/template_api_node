@@ -25,11 +25,6 @@ exports.createUser = async (req, res) => {
   try {
     const user = await userService.createUser(req.body);
 
-    const userResponse = {
-      ...user,
-      id: user.id,
-    };
-
     if (user.success === false) {
       return res.status(400).json({ success: false, message: user.message });
     }
